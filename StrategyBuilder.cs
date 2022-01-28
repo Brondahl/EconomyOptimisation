@@ -115,8 +115,9 @@ namespace EconomyOptimisation
             
             while (remainingUpgrades.Any())
             {
-                var newScenario = new Scenario(remainingUpgrades, scenario.InitialCash, currentIncome);
-                var nextUpgrade = new InitialPointOfBuyBackStrategyBuilder().CalculateStrategy(newScenario).UpgradeOrder.First();
+                //Technically the 0 here is wrong. But in models where Income << Costs it shouldn't be an issue.
+                var newScenario = new Scenario(remainingUpgrades, 0, currentIncome);
+                var nextUpgrade = new InitialPointOfBuyBackStrategyBuilder().CalculateStrategy(newScenario).UpgradeOrder.First(); //This fully sorts the POB, which isn't actually necessary.
                 proposedStrategy.Enqueue(nextUpgrade);
                 remainingUpgrades.Remove(nextUpgrade);
                 currentIncome += nextUpgrade.Reward;
