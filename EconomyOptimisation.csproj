@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="EconomyOptimisation.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="EconomyOptimisation.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="EconomyOptimisation.Test\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="morelinq" Version="3.3.2" />
+    </ItemGroup>
+
+</Project>
